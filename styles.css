@@ -56,6 +56,10 @@ nav ul li a {
 
 }
 
+.nav-icon {
+    margin-right: 0.5rem;
+}
+
 /* NAV LINE */
 nav ul li::before {
     content: '';
