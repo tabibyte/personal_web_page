@@ -32,3 +32,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showSection('#about');
 });
+
+
+
+// JavaScript for theme switching remains the same
+const lightThemeButton = document.getElementById('light-theme');
+const darkThemeButton = document.getElementById('dark-theme');
+
+lightThemeButton.addEventListener('click', () => {
+    document.body.classList.remove('dark-theme');
+    document.body.classList.add('light-theme');
+
+    lightThemeButton.classList.add('selected');
+    darkThemeButton.classList.remove('selected');
+});
+
+darkThemeButton.addEventListener('click', () => {
+    document.body.classList.remove('light-theme');
+    document.body.classList.add('dark-theme');
+
+
+
+    darkThemeButton.classList.add('selected');
+    lightThemeButton.classList.remove('selected');
+});

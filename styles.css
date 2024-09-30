@@ -1,24 +1,27 @@
 /* BASE */ 
 
 :root {
-    --color-black: #080808;
+    --color-black: #000000;
     --color-white: #dfdfdf;
 }
 
-html, body {
+body {
     margin: 0;  
     padding: 0.5rem;
     box-sizing: border-box;
     
 }
 
+html {
+    margin: 0;  
+    padding: 0.5rem;
+    box-sizing: border-box;
+    height: 100%; 
+}
+
 * {
     font-family: 'JetBrains Mono', monospace;
     vertical-align: baseline;
-}
-
-html {
-    height: 100%;
 }
 
 body {
@@ -35,6 +38,19 @@ body {
 p {
     margin-block-start: 0;
     margin-block-end: 0;
+}
+
+/* COLORS */
+
+body {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+    --color-black: #dfdfdf;
+    --color-white: #000000;
 }
 
 
@@ -211,7 +227,7 @@ footer {
 .footer-left {
     text-align: left;
     align-items: center;
-    
+    user-select: none;    
 }
 
 .footer-right {
@@ -236,16 +252,75 @@ footer {
 }
 
 /* FOOTER THEME-TOGGLE */
-#theme-toggle {
-    padding: 0.5rem 1rem;
-    background-color: var(--color-white);
-    color: var(--color-black);
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+
+/* Theme Toggle Styles */
+.theme-toggle {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
-#theme-toggle:hover {
+.toggle-item {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+     /* Border for each button */
+}
+
+.toggle-item.selected {
+    background-color: var(--color-black); /* Highlight background for selected theme */
+    color: var(--color-white); /* Change text color to white */
+}
+
+/* Hover effect when not selected */
+.toggle-item:not(.selected):hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.toggle-item#dark-theme:not(.selected):hover {
     background-color: var(--color-black);
     color: var(--color-white);
+}
+
+/* Ensure the selected button has no border */
+.toggle-item.selected {
+    border: none;
+}
+
+/* Theme change for dark mode (toggle items) */
+body.dark-theme .toggle-item#dark-theme.selected {
+    background-color: var(--color-black); /* White background for dark theme button */
+    color: var(--color-white); /* Black text for the dark theme button */
+}
+
+body.dark-theme .toggle-item#light-theme {
+    background-color: var(--color-white); /* Keep the light theme button black */
+    color: var(--color-black); /* White text for the light theme button */
+}
+
+/* Theme change for dark mode (hover effect) */
+body.dark-theme .toggle-item:not(.selected):hover {
+    background-color: var(--color-black); /* Change hover color for dark theme */
+    color: var(--color-white);
+}
+
+.toggle-item#light-theme:not(.selected):hover {
+    background-color: var(--color-white); /* Change hover color for dark theme */
+    color: var(--color-black);
+}
+
+body.dark-theme .toggle-item#light-theme:not(.selected):hover {
+    background-color: var(--color-white); /* Hover color remains white for light theme button */
+    color: var(--color-black); /* Text remains black on hover */
+}
+
+body.dark-theme .toggle-item#light-theme:not(.selected):hover {
+    background-color: var(--color-black); /* Keep the light theme button black */
+    color: var(--color-white); /* White text for the light theme button */
 }
