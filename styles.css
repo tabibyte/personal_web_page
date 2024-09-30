@@ -1,8 +1,8 @@
 /* BASE */ 
 
 :root {
-    --color-black: #000000;
-    --color-white: #ffffff;
+    --color-black: #242423;
+    --color-white: #e8eddf;
 }
 
 html, body {
@@ -13,7 +13,6 @@ html, body {
 
 * {
     font-family: 'JetBrains Mono', monospace;
-    color: var(--color-black);
 }
 
 /* NAV ITEMS */
@@ -38,7 +37,9 @@ nav ul li {
     flex: 1;
     position: relative;
     padding-top: 10px;
+    padding-bottom: 10px;
     margin-right: 1rem;
+    overflow: hidden;
 }
 
 nav ul li:last-child {
@@ -69,6 +70,57 @@ nav ul li::before {
     height: 1px;
     background-color: var(--color-black);
 }
+
+/* ANIMATION */
+
+
+nav ul li:last-child {
+    margin-right: 0; /* Remove margin from the last item */
+}
+
+nav ul li::before {
+    content: '';
+    position: absolute;
+    top: 0; /* Aligns the line at the top */
+    left: 0; /* Start at the left edge */
+
+    background-color: var(--color-black); /* Color of the line */
+    transition: background-color 0.5s ease; /* Smooth transition for the line */
+    z-index: 1; /* Set a lower z-index */
+}
+
+nav ul li a {
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    padding-left: 1rem;
+    color: var(--color-black); /* Default text color */
+    position: relative; /* Required for stacking context */
+    z-index: 2; /* Set a higher z-index to keep text above the fill */
+}
+
+nav ul li::after {
+    content: '';
+    position: absolute;
+    top: 0; /* Aligns at the top */
+    left: 0; /* Start at the left edge */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: var(--color-black); /* Color of the fill */
+    transform: translateY(-100%); /* Initially positioned above the li */
+    transition: transform 0.5s ease; /* Smooth transition for the fill */
+    z-index: 1; /* Positioned below the text */
+}
+
+nav ul li:hover::after {
+    transform: translateY(0); /* Move the fill down into view */
+}
+
+nav ul li:hover a {
+    color: var(--color-white); /* Change text color to white on hover */
+}
+
+
 
 
 /*_________________________________________________________________________*/
