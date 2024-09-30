@@ -11,23 +11,47 @@
 <body>
     <nav>
         <ul>
-            <li><a href="#about"><span class="nav-icon">◼</span><span class="nav-text">About</span></a></li>
+            <li class="selected"><a href="#about"><span class="nav-icon">◼</span><span class="nav-text">About</span></a></li>
             <li><a href="#projects"><span class="nav-icon">◼</span><span class="nav-text">Projects</span></a></li>
             <li><a href="#misc"><span class="nav-icon">◼</span><span class="nav-text">Misc</span></a></li>
             <li><a href="#contact"><span class="nav-icon">◼</span><span class="nav-text">Contact</span></a></li>
         </ul>
     </nav>
+    
 
+    <main>
     <section id="about">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        <h1>About Me</h1>
+        <p>Details about yourself.</p>
     </section>
+    
+    <section id="projects" style="display:none;">
+        <h1>Projects</h1>
+        <p>Details about projects.</p>
+    </section>
+    
+    <section id="misc" style="display:none;">
+        <h1>Miscellaneous</h1>
+        <p>Details about misc stuff.</p>
+    </section>
+    
+    <section id="contact" style="display:none;">
+        <h1>Contact Me</h1>
+        <p>Details about contacting you.</p>
+    </section>
+    </main>
+
 
     <footer>
         <div class="footer-content">
-            <p>Data Science, Machine Learning & Artificial Intelligence</p>
-            <h1>NAME</h1>
+            <div class="footer-left">
+                <p>Your Name</p>
+                <p>Data Science</p>
+            </div>
+            <div class="footer-right">
+                <button id="theme-toggle">Light/Dark</button>
+            </div>
         </div>
-        <button id="theme-toggle">Light <span id="theme-label">dark</span></button>
     </footer>
 
     <script src="script.js"></script>

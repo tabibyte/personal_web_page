@@ -1,12 +1,12 @@
 /* BASE */ 
 
 :root {
-    --color-black: #242423;
-    --color-white: #e8eddf;
+    --color-black: #080808;
+    --color-white: #dfdfdf;
 }
 
 html, body {
-    margin: 0;
+    margin: 0;  
     padding: 0.5rem;
     box-sizing: border-box;
 }
@@ -15,10 +15,23 @@ html, body {
     font-family: 'JetBrains Mono', monospace;
 }
 
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+/*_________________________________________________________________________*/
+
+
 /* NAV ITEMS */
 
 nav {
     padding: 1rem;
+    padding-top: 0rem;
 }
 
 ul {
@@ -30,6 +43,7 @@ nav ul {
     display: flex;
     justify-content: space-between;
     width: 100%
+    
     
 }
 
@@ -71,13 +85,7 @@ nav ul li::before {
     background-color: var(--color-black);
 }
 
-/* ANIMATION */
-
-
-nav ul li:last-child {
-    margin-right: 0; /* Remove margin from the last item */
-}
-
+/* NAV ANIMATION */
 nav ul li::before {
     content: '';
     position: absolute;
@@ -120,17 +128,90 @@ nav ul li:hover a {
     color: var(--color-white); /* Change text color to white on hover */
 }
 
+/* NAV MOBILE */
 
+@media (max-width: 768px) {  /* Adjust this value based on when you want the layout to change */
+    nav ul {
+        display: block; /* Stack items vertically */
+        text-align: center; /* Center items in the column layout */
+    }
+
+    nav ul li {
+        margin-bottom: 1rem; /* Add space between items vertically */
+        
+    }
+
+    nav ul li:last-child {
+        margin-right: 1rem;
+    }
+
+    nav ul li:last-child {
+        margin-bottom: 0; /* Remove margin from the last item */
+    }
+}
+
+/* NAV SELECTED */
+
+nav ul li.selected::after {
+    transform: translateY(0); /* Keep the background fill in view */
+}
+
+nav ul li.selected a {
+    color: var(--color-white); /* Keep the text color white */
+}
+
+nav ul li:hover a,
+nav ul li.selected:hover a {
+    color: var(--color-white); /* Ensure the color doesn't change when hovered */
+}
 
 
 /*_________________________________________________________________________*/
 
 
 /* MAIN */
- 
-  
+
+main {
+    flex: 1;
+}
+
+section {
+    padding: 1rem;
+}
   
 /* FOOTER */
+
 footer {
     padding: 1rem;
+    padding-bottom  : 0rem;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-left {
+    text-align: left;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+/* FOOTER THEME-TOGGLE */
+#theme-toggle {
+    padding: 0.5rem 1rem;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
 }

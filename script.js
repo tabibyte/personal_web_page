@@ -1,12 +1,34 @@
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
-const themeLabel = document.getElementById('theme-label');
+document.addEventListener('DOMContentLoaded', () => {
 
-themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-theme');
-    if (body.classList.contains('dark-theme')) {
-        themeLabel.textContent = 'light';
-    } else {
-        themeLabel.textContent = 'dark';
-    }
+    const navItems = document.querySelectorAll('nav ul li');
+    const sections = document.querySelectorAll('section');
+
+    const removeSelectedClass = () => {
+        navItems.forEach(item => {
+            item.classList.remove('selected');
+        });
+        sections.forEach(section => {
+            section.style.display = 'none';
+        });
+    };
+
+    const showSection = (sectionId) => {
+        const section = document.querySelector(sectionId);
+        if (section) {
+            section.style.display = 'block';
+        }
+    };
+
+    navItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = item.querySelector('a').getAttribute('href');
+
+            removeSelectedClass();
+            item.classList.add('selected');
+            showSection(target);
+        });
+    });
+
+    showSection('#about');
 });
