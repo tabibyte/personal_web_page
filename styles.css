@@ -1,8 +1,8 @@
 /* BASE */ 
 
 :root {
-    --color-black: #000000;
-    --color-white: #dfdfdf;
+    --color-black: #111111;
+    --color-white: #e5e5e5e5;
 }
 
 body {
@@ -49,10 +49,9 @@ body {
 }
 
 body.dark-theme {
-    --color-black: #dfdfdf;
-    --color-white: #000000;
+    --color-black: #e5e5e5;
+    --color-white: #111111;
 }
-
 
 /*_________________________________________________________________________*/
 
@@ -204,12 +203,102 @@ nav ul li.selected:hover a {
 
 main {
     flex: 1;
+    
 }
 
 section {
     padding: 1rem;
 }
+
+
+/* ABOUT */
+
+
+section#about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 2rem 0;
+    align-content: center;
+  }
   
+  .about-item {
+    flex: 1;
+    padding: 0.5rem;
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Add a small vertical line between the sections */
+  .about-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: var(--color-black); /* Change color as needed */
+    opacity: 0.4; /* Lighten the line */
+  }
+  
+  /* Ensure proper spacing for the text inside each section */
+  .about-item h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .about-item p {
+    line-height: 1.5;
+  }
+  
+  /* Adjust the layout on smaller screens */
+  @media (max-width: 768px) {
+    .about-section {
+      flex-direction: column;
+    }
+  
+    .about-item:not(:last-child)::after {
+      display: none;
+    }
+  
+    .about-item {
+      padding-bottom: 1rem;
+    }
+  }
+
+a {
+    
+    color: var(--color-black);
+    transition: color 0.5s ease;
+}
+  
+.svgs1 .svgs2 { 
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.svgs1 svg {
+    max-width: 64px;
+    fill: var(--color-black);
+    transition: fill 0.5s ease;
+    align-items: center;
+    padding: 0.8rem;
+}
+
+.svgs2 svg {
+    max-width: 32px;
+    fill: var(--color-black);
+    transition: fill 0.5s ease;
+    align-items: center;
+}
+
 /* FOOTER */
 
 footer {
