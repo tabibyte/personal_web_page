@@ -1,3 +1,4 @@
+/* NAV ITEMS */
 document.addEventListener('DOMContentLoaded', () => {
 
     const navItems = document.querySelectorAll('nav ul li');
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// JavaScript for theme switching remains the same
+/* THEME CHANGE */
 const lightThemeButton = document.getElementById('light-theme');
 const darkThemeButton = document.getElementById('dark-theme');
 
@@ -55,4 +56,28 @@ darkThemeButton.addEventListener('click', () => {
 
     darkThemeButton.classList.add('selected');
     lightThemeButton.classList.remove('selected');
+});
+
+
+
+/* NAME 0'S AND 1'S ANIMATION */
+document.addEventListener('DOMContentLoaded', function () {
+    const nameElement = document.getElementById('name');
+    const originalText = nameElement.textContent;
+    let interval = null;
+
+    nameElement.addEventListener('mouseenter', function () {
+        interval = setInterval(() => {
+            let randomText = '';
+            for (let i = 0; i < originalText.length; i++) {
+                randomText += Math.random() > 0.5 ? '0' : '1';
+            }
+            nameElement.textContent = randomText;
+        }, 100);
+    });
+
+    nameElement.addEventListener('mouseleave', function () {
+        clearInterval(interval);
+        nameElement.textContent = originalText;
+    });
 });

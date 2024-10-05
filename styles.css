@@ -118,12 +118,12 @@ nav ul li::before {
 nav ul li::before {
     content: '';
     position: absolute;
-    top: 0; /* Aligns the line at the top */
-    left: 0; /* Start at the left edge */
+    top: 0;
+    left: 0;
 
-    background-color: var(--color-black); /* Color of the line */
-    transition: background-color 0.5s ease; /* Smooth transition for the line */
-    z-index: 1; /* Set a lower z-index */
+    background-color: var(--color-black);
+    transition: background-color 0.5s ease;
+    z-index: 1;
 }
 
 nav ul li a {
@@ -131,43 +131,43 @@ nav ul li a {
     display: block;
     text-align: left;
     padding-left: 1rem;
-    color: var(--color-black); /* Default text color */
-    position: relative; /* Required for stacking context */
-    z-index: 2; /* Set a higher z-index to keep text above the fill */
+    color: var(--color-black);
+    position: relative;
+    z-index: 2;
 }
 
 nav ul li::after {
     content: '';
     position: absolute;
-    top: 0; /* Aligns at the top */
-    left: 0; /* Start at the left edge */
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: var(--color-black); /* Color of the fill */
-    transform: translateY(-100%); /* Initially positioned above the li */
-    transition: transform 0.5s ease; /* Smooth transition for the fill */
-    z-index: 1; /* Positioned below the text */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-black);
+    transform: translateY(-100%);
+    transition: transform 0.5s ease;
+    z-index: 1;
 }
 
 nav ul li:hover::after {
-    transform: translateY(0); /* Move the fill down into view */
+    transform: translateY(0);
 }
 
 nav ul li:hover a {
     color: var(--color-white);
-    transition: color 0.5s ease; /* Change text color to white on hover */
+    transition: color 0.5s ease;
 }
 
 /* NAV MOBILE */
 
-@media (max-width: 768px) {  /* Adjust this value based on when you want the layout to change */
+@media (max-width: 768px) {
     nav ul {
-        display: block; /* Stack items vertically */
-        text-align: center; /* Center items in the column layout */
+        display: block;
+        text-align: center;
     }
 
     nav ul li {
-        margin-bottom: 1rem; /* Add space between items vertically */
+        margin-bottom: 1rem;
         
     }
 
@@ -176,23 +176,23 @@ nav ul li:hover a {
     }
 
     nav ul li:last-child {
-        margin-bottom: 0; /* Remove margin from the last item */
+        margin-bottom: 0;
     }
 }
 
 /* NAV SELECTED */
 
 nav ul li.selected::after {
-    transform: translateY(0); /* Keep the background fill in view */
+    transform: translateY(0);
 }
 
 nav ul li.selected a {
-    color: var(--color-white); /* Keep the text color white */
+    color: var(--color-white);
 }
 
 nav ul li:hover a,
 nav ul li.selected:hover a {
-    color: var(--color-white); /* Ensure the color doesn't change when hovered */
+    color: var(--color-white);
 }
 
 
@@ -220,7 +220,7 @@ section#about {
     justify-content: center;
 }
 
-.about-section {
+.sections {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
@@ -228,45 +228,44 @@ section#about {
     align-content: center;
   }
   
-  .about-item {
+  .section-item {
     flex: 1;
     padding: 0.5rem;
     text-align: center;
     position: relative;
   }
   
-  /* Add a small vertical line between the sections */
-  .about-item:not(:last-child)::after {
+  .section-item:not(:last-child)::after {
     content: '';
     position: absolute;
     right: 0;
     top: 0;
     width: 1px;
     height: 100%;
-    background-color: var(--color-black); /* Change color as needed */
-    opacity: 0.4; /* Lighten the line */
+    background-color: var(--color-black);
+    opacity: 0.4;
   }
   
-  /* Ensure proper spacing for the text inside each section */
-  .about-item h2 {
+  
+  .section-item h2 {
     margin-bottom: 1rem;
   }
   
-  .about-item p {
+  .section-item p {
     line-height: 1.5;
   }
   
-  /* Adjust the layout on smaller screens */
+
   @media (max-width: 768px) {
-    .about-section {
+    .sections {
       flex-direction: column;
     }
   
-    .about-item:not(:last-child)::after {
+    .section-item:not(:last-child)::after {
       display: none;
     }
   
-    .about-item {
+    .section-item {
       padding-bottom: 1rem;
     }
   }
@@ -327,22 +326,22 @@ footer {
 /* FOOTER NAME */
 
 #text {
-    font-size: 1.1rem; /* Adjust the size */
-    font-weight: 100; /* Makes the text bold */
+    font-size: 1.1rem;
+    font-weight: 100;
     margin-bottom: -24px ;
 
 }
 
 #name {
-    font-size: 8rem; /* Adjust the size */
-    font-weight: 800; /* Makes the text bold */
+    font-size: 8rem;
+    font-weight: 800;
     margin-bottom: -16px ;
     margin-left: -4px ;
+    transition: opacity 0.1s ease;
 }
 
 /* FOOTER THEME-TOGGLE */
 
-/* Theme Toggle Styles */
 .theme-toggle {
     display: flex;
     justify-content: center;
@@ -358,15 +357,13 @@ footer {
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
     position: relative;
-     /* Border for each button */
 }
 
 .toggle-item.selected {
-    background-color: var(--color-black); /* Highlight background for selected theme */
-    color: var(--color-white); /* Change text color to white */
+    background-color: var(--color-black);
+    color: var(--color-white);
 }
 
-/* Hover effect when not selected */
 .toggle-item:not(.selected):hover {
     background-color: var(--color-white);
     color: var(--color-black);
@@ -377,39 +374,36 @@ footer {
     color: var(--color-white);
 }
 
-/* Ensure the selected button has no border */
 .toggle-item.selected {
     border: none;
 }
 
-/* Theme change for dark mode (toggle items) */
 body.dark-theme .toggle-item#dark-theme.selected {
-    background-color: var(--color-black); /* White background for dark theme button */
-    color: var(--color-white); /* Black text for the dark theme button */
+    background-color: var(--color-black);
+    color: var(--color-white);
 }
 
 body.dark-theme .toggle-item#light-theme {
-    background-color: var(--color-white); /* Keep the light theme button black */
-    color: var(--color-black); /* White text for the light theme button */
+    background-color: var(--color-white);
+    color: var(--color-black);
 }
 
-/* Theme change for dark mode (hover effect) */
 body.dark-theme .toggle-item:not(.selected):hover {
-    background-color: var(--color-black); /* Change hover color for dark theme */
+    background-color: var(--color-black);
     color: var(--color-white);
 }
 
 .toggle-item#light-theme:not(.selected):hover {
-    background-color: var(--color-white); /* Change hover color for dark theme */
+    background-color: var(--color-white);
     color: var(--color-black);
 }
 
 body.dark-theme .toggle-item#light-theme:not(.selected):hover {
-    background-color: var(--color-white); /* Hover color remains white for light theme button */
-    color: var(--color-black); /* Text remains black on hover */
+    background-color: var(--color-white);
+    color: var(--color-black);
 }
 
 body.dark-theme .toggle-item#light-theme:not(.selected):hover {
-    background-color: var(--color-black); /* Keep the light theme button black */
-    color: var(--color-white); /* White text for the light theme button */
+    background-color: var(--color-black);
+    color: var(--color-white);
 }
