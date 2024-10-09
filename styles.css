@@ -310,13 +310,16 @@ footer {
 .footer-content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     
 }
 
 .footer-left {
     text-align: left;
     align-items: center;
-    user-select: none;    
+    user-select: none;   
+    flex:1; 
 }
 
 .footer-right {
@@ -324,6 +327,23 @@ footer {
     margin-top: auto;
 }
 
+@media (max-width: 768px) {
+    .footer-left #text {
+        font-size: 0.8rem;
+        margin-bottom: -12px ;
+        text-align: center;
+    }
+
+    .footer-left #name {
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    .footer-right{
+        align-items: center !important;
+        width: 100%;
+    }
+}
 /* FOOTER NAME */
 
 #text {
