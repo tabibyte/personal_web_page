@@ -340,7 +340,7 @@ footer {
     }
 
     .footer-right{
-        align-items: center !important;
+        align-items: center;
         width: 100%;
     }
 }
