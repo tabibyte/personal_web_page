@@ -11,6 +11,6 @@ Dark mode:
 
 ![image](https://github.com/user-attachments/assets/26f40b23-6545-4989-b416-3c683d375849)
 
-Site demo:
+Site preview:
 
 ![site demo](https://github.com/user-attachments/assets/794abfaa-a435-47b7-b977-b61947a840cd)
